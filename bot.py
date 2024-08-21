@@ -1,10 +1,7 @@
 import discord
 from discord.ext import commands
-from config import TOKEN, PREFIX
+from config import TOKEN, PREFIX, INTENTS
 import asyncio
-
-INTENTS = discord.Intents.default()
-INTENTS.message_content = True
 
 client = commands.Bot(command_prefix=PREFIX, intents=INTENTS)
 
@@ -12,7 +9,7 @@ client = commands.Bot(command_prefix=PREFIX, intents=INTENTS)
 async def on_ready():
     print("[SafariCraft BOT] Started")
     print("==========================")
-    for extension in ["cogs.player_status"]:
+    for extension in ["cogs.player_status", "cogs.commands"]:
         try:
             await client.load_extension(extension)
             print(f"Successfully loaded extension: {extension}")

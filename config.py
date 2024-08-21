@@ -6,4 +6,5 @@ load_dotenv()
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 PREFIX = "!"
-
+INTENTS = discord.Intents.default()
+INTENTS.message_content = True
